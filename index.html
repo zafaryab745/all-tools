@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyWow - 100+ Free Online Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark-navy: #1E1E2F;
+            --text-light-gray: #EAEAEA;
+            --header-deep-blue: #2B2D42;
+            --accent-gold: #FFD700;
+            --tool-card-bg: #3A3D5B;
+            --hover-gold: #E6C200;
+        }
+        
+        body {
+            background-color: var(--bg-dark-navy);
+            color: var(--text-light-gray);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: radial-gradient(circle at 10% 20%, rgba(58, 61, 91, 0.3) 0%, rgba(30, 30, 47, 0.3) 90%);
+        }
+        
+        .header {
+            background-color: var(--header-deep-blue);
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #FFB700 100%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .logo-text {
+            font-weight: 800;
+            font-size: 2rem;
+            background: linear-gradient(to right, var(--accent-gold) 0%, #FFB700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link {
+            color: var(--text-light-gray);
+            margin: 0 10px;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+        
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--bg-dark-navy);
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-gold:hover {
+            background-color: var(--hover-gold);
+            color: var(--bg-dark-navy);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+        }
+        
+        .tool-card {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .tool-card:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-dark-navy);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .tool-card:hover .tool-title,
+        .tool-card:hover .tool-description {
+            color: var(--bg-dark-navy);
+        }
+        
+        .tool-title {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .tool-description {
+            color: var(--text-light-gray);
+            font-size: 0.9rem;
+        }
+        
+        .category-title {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .category-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+        
+        .search-box {
+            background-color: var(--tool-card-bg);
+            border: 1px solid var(--accent-gold);
+            color: var(--text-light-gray);
+            padding: 15px 20px;
+            border-radius: 50px;
+        }
+        
+        .search-box:focus {
+            background-color: var(--tool-card-bg);
+            color: var(--text-light-gray);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+        }
+        
+        .footer {
+            background-color: var(--header-deep-blue);
+            padding: 50px 0 20px;
+            margin-top: 50px;
+            background-image: linear-gradient(to bottom, rgba(43, 45, 66, 0.9), rgba(30, 30, 47, 0.9));
+        }
+        
+        .footer-links a {
+            color: var(--text-light-gray);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--tool-card-bg);
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icon:hover {
+            background: var(--accent-gold);
+            color: var(--bg-dark-navy);
+            transform: translateY(-5px);
+        }
+        
+        /* Tool page styles */
+        .tool-container {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tool-header {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .tool-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+        
+        .ad-container {
+            background: linear-gradient(135deg, rgba(58, 61, 91, 0.8), rgba(43, 45, 66, 0.8));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        /* Contact Page */
+        .contact-container {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-form {
+            background-color: rgba(43, 45, 66, 0.5);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .contact-info {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(43, 45, 66, 0.5), rgba(58, 61, 91, 0.5));
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(43, 45, 66, 0.8), rgba(30, 30, 47, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100" fill="rgba(255,215,0,0.1)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            padding: 60px 30px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-gold) 0%, #FFB700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tool-card {
+                padding: 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo-container">
+                    <div class="logo">
+                        <span class="logo-text">TW</span>
+                    </div>
+                    <a href="#" class="logo-text" onclick="showHomePage()">tinywow.fun</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <nav class="d-none d-md-flex">
+                        <a href="#" class="nav-link" onclick="showHomePage()">Home</a>
+                        <a href="#" class="nav-link" onclick="showCategory('image-tools')">Image Tools</a>
+                        <a href="#" class="nav-link" onclick="showCategory('text-tools')">Text Tools</a>
+                        <a href="#" class="nav-link" onclick="showCategory('developer-tools')">Developer</a>
+                        <a href="#" class="nav-link" onclick="showContactPage()">Contact Us</a>
+                    </nav>
+                    <button class="btn btn-gold ms-3" onclick="showLoginModal()">Login</button>
+                    <button class="btn btn-outline-light ms-2" onclick="showSignupModal()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5" id="main-content">
+        <!-- Home Page -->
+        <div id="home-page">
+            <div class="hero-section">
+                <h1 class="hero-title">100+ Free Online Tools</h1>
+                <p class="hero-subtitle">All-in-one solution for image conversion, text utilities, SEO tools, calculators, and developer resources - completely free!</p>
+                <button class="btn btn-gold btn-lg px-5 py-3" onclick="showCategory('popular-tools')">Explore Tools</button>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto">
+                    <div class="input-group">
+                        <input type="text" id="search-input" class="form-control search-box" placeholder="Search for tools...">
+                        <button class="btn btn-gold px-4" type="button" onclick="searchTools()">
+                            <i class="fas fa-search me-2"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ad Space -->
+            <div class="ad-container mb-5">
+                <p>Advertisement Space</p>
+            </div>
+            
+            <!-- Categories -->
+            <div id="all-tools">
+                <h3 class="category-title" id="popular-tools">Popular Tools</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('image-to-png')">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-dark rounded-circle p-3 me-3">
+                                    <i class="fas fa-file-image text-warning"></i>
+                                </div>
+                                <h4 class="tool-title mb-0">Image to PNG</h4>
+                            </div>
+                            <p class="tool-description">Convert any image to PNG format with high quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('word-counter')">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-dark rounded-circle p-3 me-3">
+                                    <i class="fas fa-font text-warning"></i>
+                                </div>
+                                <h4 class="tool-title mb-0">Word Counter</h4>
+                            </div>
+                            <p class="tool-description">Count words, characters, sentences, and paragraphs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('json-formatter')">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-dark rounded-circle p-3 me-3">
+                                    <i class="fas fa-code text-warning"></i>
+                                </div>
+                                <h4 class="tool-title mb-0">JSON Formatter</h4>
+                            </div>
+                            <p class="tool-description">Format, validate and minify JSON data.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('password-generator')">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-dark rounded-circle p-3 me-3">
+                                    <i class="fas fa-lock text-warning"></i>
+                                </div>
+                                <h4 class="tool-title mb-0">Password Generator</h4>
+                            </div>
+                            <p class="tool-description">Create strong and secure passwords instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="category-title" id="image-tools">Image Tools</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('image-to-png')">
+                            <h4 class="tool-title">Image to PNG</h4>
+                            <p class="tool-description">Convert any image to PNG format with high quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('image-to-jpg')">
+                            <h4 class="tool-title">Image to JPG</h4>
+                            <p class="tool-description">Convert images to JPG/JPEG format easily.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('image-resizer')">
+                            <h4 class="tool-title">Image Resizer</h4>
+                            <p class="tool-description">Resize your images to any dimensions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('image-compressor')">
+                            <h4 class="tool-title">Image Compressor</h4>
+                            <p class="tool-description">Reduce image file size without losing quality.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="category-title" id="seo-tools">SEO Tools</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('meta-tag-generator')">
+                            <h4 class="tool-title">Meta Tag Generator</h4>
+                            <p class="tool-description">Create perfect meta tags for your website.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('keyword-density-checker')">
+                            <h4 class="tool-title">Keyword Density Checker</h4>
+                            <p class="tool-description">Analyze keyword density in your content.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('sitemap-generator')">
+                            <h4 class="tool-title">Sitemap Generator</h4>
+                            <p class="tool-description">Generate XML sitemaps for your website.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('robots-txt-generator')">
+                            <h4 class="tool-title">Robots.txt Generator</h4>
+                            <p class="tool-description">Create a robots.txt file for your site.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="category-title" id="text-tools">Text Tools</h3>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('word-counter')">
+                            <h4 class="tool-title">Word Counter</h4>
+                            <p class="tool-description">Count words and characters in your text.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('character-counter')">
+                            <h4 class="tool-title">Character Counter</h4>
+                            <p class="tool-description">Count characters, words, and lines.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('case-converter')">
+                            <h4 class="tool-title">Case Converter</h4>
+                            <p class="tool-description">Convert text between different cases.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card" onclick="showTool('plagiarism-checker')">
+                            <h4 class="tool-title">Plagiarism Checker</h4>
+                            <p class="tool-description">Check text for duplicate content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Us Page -->
+        <div id="contact-page" class="contact-container" style="display: none;">
+            <h2 class="tool-header">Contact Us</h2>
+            <p class="mb-4">Have questions or feedback? We'd love to hear from you!</p>
+            
+            <div class="row">
+                <div class="col-md-7 mb-4 mb-md-0">
+                    <div class="contact-form">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="John Doe">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="How can we help?">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Type your message here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gold px-4">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-md-5">
+                    <div class="contact-info">
+                        <h4 class="mb-4" style="color: var(--accent-gold);">Get in Touch</h4>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>123 Tech Street, San Francisco, CA 94103, USA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>support@tinywow.fun</p>
+                            </div>
+                        </div>
+                        
+                        <h5 class="mt-4 mb-3" style="color: var(--accent-gold);">Follow Us</h5>
+                        <div class="d-flex justify-content-start">
+                            <a href="https://youtube.com" target="_blank" class="social-icon floating" style="animation-delay: 0.2s;">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon floating" style="animation-delay: 0.4s;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" class="social-icon floating" style="animation-delay: 0.6s;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="social-icon floating" style="animation-delay: 0.8s;">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-5 text-center">
+                <button class="btn btn-outline-light" onclick="showHomePage()">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <!-- Individual Tool Pages -->
+        <div id="tool-pages" style="display: none;">
+            <!-- Word Counter Tool -->
+            <div id="word-counter-tool" class="tool-page">
+                <div class="tool-container">
+                    <h2 class="tool-header">Word Counter</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="word-counter-text" class="form-label">Enter your text</label>
+                                <textarea class="form-control" id="word-counter-text" rows="10" placeholder="Start typing here..."></textarea>
+                            </div>
+                            <button class="btn btn-gold px-4" onclick="countWords()">
+                                <i class="fas fa-calculator me-2"></i>Count Words
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="results-area">
+                                <h5>Results</h5>
+                                <div class="card bg-dark text-white p-3 mb-4">
+                                    <div class="row text-center">
+                                        <div class="col-6 mb-3">
+                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="word-count">0</div>
+                                            <div>Words</div>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="character-count">0</div>
+                                            <div>Characters</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="sentence-count">0</div>
+                                            <div>Sentences</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="paragraph-count">0</div>
+                                            <div>Paragraphs</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card bg-dark text-white p-3">
+                                    <h6>Text Preview</h6>
+                                    <div style="max-height: 150px; overflow-y: auto;" id="text-preview">
+                                        Your text will appear here...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-container mt-4">
+                    <p>Advertisement Space</p>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-outline-light" onclick="showHomePage()">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Tools
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="logo-container mb-3">
+                        <div class="logo" style="width: 50px; height: 50px;">
+                            <span class="logo-text" style="font-size: 1.2rem;">TW</span>
+                        </div>
+                        <span class="logo-text">tinywow.fun</span>
+                    </div>
+                    <p>100+ free online tools for all your needs. No registration required.</p>
+                    <div class="d-flex mt-3">
+                        <a href="https://youtube.com" target="_blank" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Categories</h5>
+                    <div class="footer-links d-flex flex-column">
+                        <a href="#" onclick="showCategory('image-tools')">Image Tools</a>
+                        <a href="#" onclick="showCategory('seo-tools')">SEO Tools</a>
+                        <a href="#" onclick="showCategory('text-tools')">Text Tools</a>
+                        <a href="#" onclick="showCategory('developer-tools')">Developer</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Resources</h5>
+                    <div class="footer-links d-flex flex-column">
+                        <a href="#" onclick="showHomePage()">All Tools</a>
+                        <a href="#" onclick="showTool('word-counter')">Word Counter</a>
+                        <a href="#" onclick="showTool('json-formatter')">JSON Formatter</a>
+                        <a href="#" onclick="showTool('image-to-png')">Image Converter</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <h5>Contact & Support</h5>
+                    <div class="footer-links d-flex flex-column">
+                        <a href="#" onclick="showContactPage()">Contact Us</a>
+                        <a href="#" onclick="showPrivacyPolicy()">Privacy Policy</a>
+                        <a href="#" onclick="showPrivacyPolicy()">Terms of Service</a>
+                        <a href="#" onclick="showPrivacyPolicy()">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <div class="mt-4">
+    <div class="d-flex align-items-center">
+        <span class="me-2 small">Technology by</span>
+        <div style="background: rgba(255,215,0,0.1); padding: 3px 8px; border-radius: 5px;">
+            <i class="fas fa-brain me-1" style="color: var(--accent-gold);"></i>
+            <span style="font-weight: 600; color: var(--accent-gold);">DeepSeek</span>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login to Your Account</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-gold w-100">Login</button>
+                    </form>
+                    <div class="mt-3 text-center">
+                        <p>Don't have an account? <a href="#" onclick="showSignupModal()">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create an Account</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="signupName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="signupName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="signupConfirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-gold w-100">Sign Up</button>
+                    </form>
+                    <div class="mt-3 text-center">
+                        <p>Already have an account? <a href="#" onclick="showLoginModal()">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Privacy Policy</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Privacy Policy for tinywow.fun</h4>
+                    <p>Last updated: January 01, 2023</p>
+                    
+                    <h5>1. Information We Collect</h5>
+                    <p>We collect information you provide directly to us when you use our tools, create an account, or communicate with us.</p>
+                    
+                    <h5>2. How We Use Your Information</h5>
+                    <p>We use the information we collect to provide, maintain, and improve our services, to develop new features, and to protect tinywow.fun and our users.</p>
+                    
+                    <h5>3. Cookies and Similar Technologies</h5>
+                    <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information to improve user experience.</p>
+                    
+                    <h5>4. Third-Party Services</h5>
+                    <p>We may employ third-party companies and individuals to facilitate our service, provide the service on our behalf, or assist us in analyzing how our service is used.</p>
+                    
+                    <h5>5. Security</h5>
+                    <p>We take reasonable measures to help protect information about you from loss, theft, misuse and unauthorized access, disclosure, alteration, and destruction.</p>
+                    
+                    <h5>6. Changes to This Privacy Policy</h5>
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gold" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // DOM Elements
+        const homePage = document.getElementById('home-page');
+        const toolPages = document.getElementById('tool-pages');
+        const contactPage = document.getElementById('contact-page');
+        const allTools = document.getElementById('all-tools');
+        const searchInput = document.getElementById('search-input');
+        
+        // Modal instances
+        let loginModal;
+        let signupModal;
+        let privacyModal;
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Bootstrap modals
+            loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            signupModal = new bootstrap.Modal(document.getElementById('signupModal'));
+            privacyModal = new bootstrap.Modal(document.getElementById('privacyModal'));
+            
+            // Set up form submissions
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            document.getElementById('signupForm').addEventListener('submit', handleSignup);
+            
+            // Set up text input for word counter
+            document.getElementById('word-counter-text').addEventListener('input', function() {
+                countWords();
+            });
+            
+            // Show home page by default
+            showHomePage();
+        });
+        
+        // Show home page
+        function showHomePage() {
+            homePage.style.display = 'block';
+            toolPages.style.display = 'none';
+            contactPage.style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+        
+        // Show contact page
+        function showContactPage() {
+            homePage.style.display = 'none';
+            toolPages.style.display = 'none';
+            contactPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        
+        // Show a specific category
+        function showCategory(categoryId) {
+            showHomePage();
+            const element = document.getElementById(categoryId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Show a specific tool
+        function showTool(toolId) {
+            homePage.style.display = 'none';
+            toolPages.style.display = 'block';
+            contactPage.style.display = 'none';
+            
+            // Hide all tool pages first
+            const toolPageElements = document.querySelectorAll('.tool-page');
+            toolPageElements.forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show the selected tool page
+            const toolPage = document.getElementById(toolId + '-tool');
+            if (toolPage) {
+                toolPage.style.display = 'block';
+                window.scrollTo(0, 0);
+            } else {
+                showHomePage();
+            }
+        }
+        
+        // Search tools
+        function searchTools() {
+            const searchTerm = searchInput.value.toLowerCase();
+            if (!searchTerm) return;
+            
+            const toolCards = document.querySelectorAll('.tool-card');
+            let foundAny = false;
+            
+            toolCards.forEach(card => {
+                const title = card.querySelector('.tool-title').textContent.toLowerCase();
+                const description = card.querySelector('.tool-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    foundAny = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            if (!foundAny) {
+                alert('No tools found matching your search.');
+            }
+        }
+        
+        // Show login modal
+        function showLoginModal() {
+            loginModal.show();
+        }
+        
+        // Show signup modal
+        function showSignupModal() {
+            signupModal.show();
+        }
+        
+        // Show privacy policy
+        function showPrivacyPolicy() {
+            privacyModal.show();
+        }
+        
+        // Handle login
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate successful login
+            alert('Login successful! Welcome back to tinywow.fun');
+            loginModal.hide();
+            
+            // Reset form
+            document.getElementById('loginForm').reset();
+        }
+        
+        // Handle signup
+        function handleSignup(e) {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            
+            // Validation
+            if (!name || !email || !password || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters');
+                return;
+            }
+            
+            // Simulate successful signup
+            alert('Account created successfully! Welcome to tinywow.fun');
+            signupModal.hide();
+            
+            // Reset form
+            document.getElementById('signupForm').reset();
+        }
+        
+        // Word Counter functionality
+        function countWords() {
+            const text = document.getElementById('word-counter-text').value;
+            
+            // Word count (simplified)
+            const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            
+            // Character count
+            const characterCount = text.length;
+            
+            // Sentence count (simplified)
+            const sentenceCount = text.trim() === '' ? 0 : text.split(/[.!?]+/).length - 1;
+            
+            // Paragraph count
+            const paragraphCount = text.trim() === '' ? 0 : text.split(/\n+/).filter(p => p.trim().length > 0).length;
+            
+            // Update UI
+            document.getElementById('word-count').textContent = wordCount;
+            document.getElementById('character-count').textContent = characterCount;
+            document.getElementById('sentence-count').textContent = sentenceCount;
+            document.getElementById('paragraph-count').textContent = paragraphCount;
+            
+            // Update preview
+            document.getElementById('text-preview').textContent = text || 'Your text will appear here...';
+        }
+        
+        // Log website name on load
+        console.log('Welcome to tinywow.fun - Your multi-tools website!');
+    </script>
+</body>
+</html>
