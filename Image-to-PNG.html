@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to convert any image to PNG format with high quality. Fast, secure, and works on all devices.">
+    <meta name="keywords" content="image to png, convert to png, png converter, image converter, free image tool">
+    <meta name="author" content="tinywow.fun">
+    <meta property="og:title" content="Image to PNG Converter | Free Online Tool - tinywow.fun">
+    <meta property="og:description" content="Convert any image to PNG format with high quality for free.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tinywow.fun/image-to-png">
+    <title>Image to PNG Converter | Free Online Tool - tinywow.fun</title>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --tool-card-bg: #3A3D5B;
+            --hover-accent: #E6C200;
+            --hover-text: #1E1E2F;
+            --box-shadow: rgba(255, 215, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .ad-container {
+            background-color: var(--tool-card-bg);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px var(--box-shadow);
+        }
+        
+        .tool-card {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px var(--box-shadow);
+        }
+        
+        .upload-area {
+            border: 2px dashed var(--accent-color);
+            border-radius: 8px;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+        
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .preview-container {
+            display: none;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        #imagePreview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .options {
+            margin: 1.5rem 0;
+        }
+        
+        .option-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        select, input[type="range"] {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--hover-text);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+        
+        .btn:hover {
+            background-color: var(--hover-accent);
+            transform: translateY(-2px);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .download-btn {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        footer {
+            background-color: var(--header-bg);
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background-color: var(--tool-card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background-color: var(--accent-color);
+            color: var(--hover-text);
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card:hover h3 {
+            color: var(--hover-text);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+            
+            .tool-card {
+                padding: 1.5rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Image to PNG Converter</h1>
+        <p>Convert any image to PNG format with high quality - by tinywow.fun</p>
+    </header>
+    
+    <div class="container">
+        <!-- Top Ad Banner -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense ad unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="tool-card">
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drag & Drop Your Image Here</h3>
+                <p>or click to browse files</p>
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+            
+            <div class="preview-container" id="previewContainer">
+                <h3>Image Preview</h3>
+                <img id="imagePreview" src="#" alt="Preview">
+            </div>
+            
+            <div class="options">
+                <div class="option-group">
+                    <label for="quality">PNG Quality:</label>
+                    <input type="range" id="quality" min="1" max="100" value="90">
+                    <span id="qualityValue">90%</span>
+                </div>
+                
+                <div class="option-group">
+                    <label for="resize">Resize (optional):</label>
+                    <select id="resize">
+                        <option value="original">Keep original size</option>
+                        <option value="1024">1024px (width)</option>
+                        <option value="800">800px (width)</option>
+                        <option value="640">640px (width)</option>
+                        <option value="custom">Custom size</option>
+                    </select>
+                </div>
+                
+                <div class="option-group" id="customSizeGroup" style="display: none;">
+                    <label for="customWidth">Custom Width (px):</label>
+                    <input type="number" id="customWidth" placeholder="Width in pixels">
+                    
+                    <label for="customHeight" style="margin-top: 0.5rem;">Custom Height (px):</label>
+                    <input type="number" id="customHeight" placeholder="Height in pixels">
+                </div>
+            </div>
+            
+            <button class="btn btn-block" id="convertBtn">Convert to PNG</button>
+            <a href="#" class="btn btn-block download-btn" id="downloadBtn" download="converted.png">Download PNG</a>
+        </div>
+        
+        <!-- Middle Ad Banner -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense ad unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3><i class="fas fa-bolt"></i> Fast Conversion</h3>
+                <p>tinywow.fun processes your images quickly without compromising quality, saving you valuable time.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3><i class="fas fa-lock"></i> Secure Processing</h3>
+                <p>All conversions happen in your browser. Your images never leave your device, ensuring complete privacy.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3><i class="fas fa-mobile-alt"></i> Mobile Friendly</h3>
+                <p>tinywow.fun works perfectly on all devices - smartphones, tablets, and desktop computers.</p>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <h2>How to Convert Images to PNG on tinywow.fun</h2>
+            <ol style="padding-left: 1.5rem; margin-top: 1rem;">
+                <li>Click the upload area or drag and drop your image file</li>
+                <li>Adjust quality and resize options if needed</li>
+                <li>Click "Convert to PNG" button</li>
+                <li>Download your converted PNG file</li>
+            </ol>
+            
+            <h2 style="margin-top: 1.5rem;">Supported Formats</h2>
+            <p>JPG, JPEG, GIF, BMP, WEBP, TIFF, and more!</p>
+        </div>
+        
+        <!-- Bottom Ad Banner -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense ad unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> tinywow.fun - Image to PNG Converter. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // File upload handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewContainer = document.getElementById('previewContainer');
+        const imagePreview = document.getElementById('imagePreview');
+        const convertBtn = document.getElementById('convertBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('qualityValue');
+        const resizeSelect = document.getElementById('resize');
+        const customSizeGroup = document.getElementById('customSizeGroup');
+        
+        // Update quality value display
+        qualitySlider.addEventListener('input', () => {
+            qualityValue.textContent = `${qualitySlider.value}%`;
+        });
+        
+        // Show/hide custom size inputs
+        resizeSelect.addEventListener('change', () => {
+            customSizeGroup.style.display = resizeSelect.value === 'custom' ? 'block' : 'none';
+        });
+        
+        // Handle file selection
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        fileInput.addEventListener('change', handleFileSelect);
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.backgroundColor = 'rgba(255, 215, 0, 0.2)';
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.backgroundColor = '';
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.backgroundColor = '';
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                handleFileSelect({ target: fileInput });
+            }
+        });
+        
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            if (!file.type.match('image.*')) {
+                alert('Please select an image file.');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                imagePreview.src = e.target.result;
+                previewContainer.style.display = 'block';
+                downloadBtn.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // Conversion function
+        convertBtn.addEventListener('click', () => {
+            if (!fileInput.files.length) {
+                alert('Please select an image first.');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const quality = parseInt(qualitySlider.value) / 100;
+            
+            const img = new Image();
+            img.onload = () => {
+                let width = img.width;
+                let height = img.height;
+                
+                // Handle resizing
+                if (resizeSelect.value !== 'original') {
+                    if (resizeSelect.value === 'custom') {
+                        const customWidth = parseInt(document.getElementById('customWidth').value);
+                        const customHeight = parseInt(document.getElementById('customHeight').value);
+                        
+                        if (customWidth && customHeight) {
+                            width = customWidth;
+                            height = customHeight;
+                        } else if (customWidth) {
+                            const ratio = customWidth / width;
+                            width = customWidth;
+                            height = Math.round(height * ratio);
+                        } else if (customHeight) {
+                            const ratio = customHeight / height;
+                            height = customHeight;
+                            width = Math.round(width * ratio);
+                        }
+                    } else {
+                        const targetWidth = parseInt(resizeSelect.value);
+                        const ratio = targetWidth / width;
+                        width = targetWidth;
+                        height = Math.round(height * ratio);
+                    }
+                }
+                
+                // Create canvas
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                // Convert to PNG and create download link
+                canvas.toBlob((blob) => {
+                    const pngUrl = URL.createObjectURL(blob);
+                    downloadBtn.href = pngUrl;
+                    downloadBtn.style.display = 'inline-block';
+                    downloadBtn.download = file.name.replace(/\.[^/.]+$/, '') + '.png';
+                    
+                    // Update preview with converted image
+                    imagePreview.src = pngUrl;
+                    previewContainer.style.display = 'block';
+                }, 'image/png', quality);
+            };
+            
+            img.src = URL.createObjectURL(file);
+        });
+    </script>
+</body>
+</html>
