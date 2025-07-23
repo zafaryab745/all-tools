@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TinyWow - 100+ Free Online Tools</title>
+    <title>tinywow.fun - 100+ Free Online Tools</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark-navy: #1E1E2F;
-            --text-light-gray: #EAEAEA;
-            --header-deep-blue: #2B2D42;
-            --accent-gold: #FFD700;
-            --tool-card-bg: #3A3D5B;
-            --hover-gold: #E6C200;
+            --bg-dark-purple: #2A0A4A;
+            --text-light: #F0E6FF;
+            --header-dark: #1A052D;
+            --accent-pink: #FF4D8D;
+            --tool-card-bg: #3D1A6B;
+            --hover-pink: #FF2D7A;
         }
         
         body {
-            background-color: var(--bg-dark-navy);
-            color: var(--text-light-gray);
+            background-color: var(--bg-dark-purple);
+            color: var(--text-light);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: radial-gradient(circle at 10% 20%, rgba(58, 61, 91, 0.3) 0%, rgba(30, 30, 47, 0.3) 90%);
+            background-image: radial-gradient(circle at 10% 20%, rgba(61, 26, 107, 0.3) 0%, rgba(42, 10, 74, 0.3) 90%);
         }
         
         .header {
-            background-color: var(--header-deep-blue);
+            background-color: var(--header-dark);
             padding: 15px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             position: sticky;
@@ -39,27 +39,27 @@
         }
         
         .logo {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, #FFB700 100%);
+            background: linear-gradient(135deg, var(--accent-pink) 0%, #FF6B9D 100%);
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 77, 141, 0.3);
         }
         
         .logo-text {
             font-weight: 800;
             font-size: 2rem;
-            background: linear-gradient(to right, var(--accent-gold) 0%, #FFB700 100%);
+            background: linear-gradient(to right, var(--accent-pink) 0%, #FF6B9D 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .nav-link {
-            color: var(--text-light-gray);
+            color: var(--text-light);
             margin: 0 10px;
             font-weight: 500;
             position: relative;
@@ -73,7 +73,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-gold);
+            background: var(--accent-pink);
             transition: width 0.3s ease;
         }
         
@@ -82,23 +82,23 @@
         }
         
         .nav-link:hover {
-            color: var(--accent-gold);
+            color: var(--accent-pink);
         }
         
-        .btn-gold {
-            background-color: var(--accent-gold);
-            color: var(--bg-dark-navy);
+        .btn-pink {
+            background-color: var(--accent-pink);
+            color: white;
             font-weight: 600;
             border: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(255, 77, 141, 0.3);
         }
         
-        .btn-gold:hover {
-            background-color: var(--hover-gold);
-            color: var(--bg-dark-navy);
+        .btn-pink:hover {
+            background-color: var(--hover-pink);
+            color: white;
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 6px 12px rgba(255, 77, 141, 0.4);
         }
         
         .tool-card {
@@ -108,36 +108,36 @@
             margin-bottom: 20px;
             height: 100%;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 77, 141, 0.2);
+            border: 1px solid rgba(255, 77, 141, 0.1);
         }
         
         .tool-card:hover {
-            background-color: var(--accent-gold);
-            color: var(--bg-dark-navy);
+            background-color: var(--accent-pink);
+            color: white;
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 8px 15px rgba(255, 77, 141, 0.4);
         }
         
         .tool-card:hover .tool-title,
         .tool-card:hover .tool-description {
-            color: var(--bg-dark-navy);
+            color: white;
         }
         
         .tool-title {
-            color: var(--accent-gold);
+            color: var(--accent-pink);
             font-weight: 600;
             margin-bottom: 10px;
         }
         
         .tool-description {
-            color: var(--text-light-gray);
+            color: var(--text-light);
             font-size: 0.9rem;
         }
         
         .category-title {
-            color: var(--accent-gold);
-            border-bottom: 2px solid var(--accent-gold);
+            color: var(--accent-pink);
+            border-bottom: 2px solid var(--accent-pink);
             padding-bottom: 10px;
             margin: 30px 0 20px;
             position: relative;
@@ -152,41 +152,41 @@
             transform: translateY(-50%);
             width: 8px;
             height: 8px;
-            background: var(--accent-gold);
+            background: var(--accent-pink);
             border-radius: 50%;
         }
         
         .search-box {
             background-color: var(--tool-card-bg);
-            border: 1px solid var(--accent-gold);
-            color: var(--text-light-gray);
+            border: 1px solid var(--accent-pink);
+            color: var(--text-light);
             padding: 15px 20px;
             border-radius: 50px;
         }
         
         .search-box:focus {
             background-color: var(--tool-card-bg);
-            color: var(--text-light-gray);
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+            color: var(--text-light);
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 0 0.25rem rgba(255, 77, 141, 0.25);
         }
         
         .footer {
-            background-color: var(--header-deep-blue);
+            background-color: var(--header-dark);
             padding: 50px 0 20px;
             margin-top: 50px;
-            background-image: linear-gradient(to bottom, rgba(43, 45, 66, 0.9), rgba(30, 30, 47, 0.9));
+            background-image: linear-gradient(to bottom, rgba(26, 5, 45, 0.9), rgba(42, 10, 74, 0.9));
         }
         
         .footer-links a {
-            color: var(--text-light-gray);
+            color: var(--text-light);
             text-decoration: none;
             margin: 0 10px;
             transition: all 0.3s ease;
         }
         
         .footer-links a:hover {
-            color: var(--accent-gold);
+            color: var(--accent-pink);
             transform: translateX(5px);
         }
         
@@ -198,7 +198,7 @@
             height: 45px;
             border-radius: 50%;
             background: var(--tool-card-bg);
-            color: var(--accent-gold);
+            color: var(--accent-pink);
             font-size: 1.3rem;
             margin: 0 10px;
             transition: all 0.3s ease;
@@ -206,8 +206,8 @@
         }
         
         .social-icon:hover {
-            background: var(--accent-gold);
-            color: var(--bg-dark-navy);
+            background: var(--accent-pink);
+            color: white;
             transform: translateY(-5px);
         }
         
@@ -221,7 +221,7 @@
         }
         
         .tool-header {
-            color: var(--accent-gold);
+            color: var(--accent-pink);
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 15px;
@@ -234,11 +234,11 @@
             left: 0;
             width: 80px;
             height: 3px;
-            background: var(--accent-gold);
+            background: var(--accent-pink);
         }
         
         .ad-container {
-            background: linear-gradient(135deg, rgba(58, 61, 91, 0.8), rgba(43, 45, 66, 0.8));
+            background: linear-gradient(135deg, rgba(61, 26, 107, 0.8), rgba(43, 45, 66, 0.8));
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
@@ -247,7 +247,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 77, 141, 0.2);
         }
         
         /* Contact Page */
@@ -259,17 +259,17 @@
         }
         
         .contact-form {
-            background-color: rgba(43, 45, 66, 0.5);
+            background-color: rgba(26, 5, 45, 0.5);
             padding: 25px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 77, 141, 0.1);
         }
         
         .contact-info {
             padding: 25px;
-            background: linear-gradient(135deg, rgba(43, 45, 66, 0.5), rgba(58, 61, 91, 0.5));
+            background: linear-gradient(135deg, rgba(26, 5, 45, 0.5), rgba(61, 26, 107, 0.5));
             border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 77, 141, 0.1);
         }
         
         .info-item {
@@ -281,12 +281,12 @@
         .info-icon {
             width: 40px;
             height: 40px;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 77, 141, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-gold);
+            color: var(--accent-pink);
             font-size: 1.2rem;
             margin-right: 15px;
             flex-shrink: 0;
@@ -294,21 +294,21 @@
         
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, rgba(43, 45, 66, 0.8), rgba(30, 30, 47, 0.9)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100" fill="rgba(255,215,0,0.1)"/></svg>');
+            background: linear-gradient(135deg, rgba(26, 5, 45, 0.8), rgba(42, 10, 74, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100" fill="rgba(255,77,141,0.1)"/></svg>');
             background-size: cover;
             background-position: center;
             border-radius: 15px;
             padding: 60px 30px;
             margin: 30px 0;
             text-align: center;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 77, 141, 0.2);
         }
         
         .hero-title {
             font-size: 3.5rem;
             font-weight: 800;
-            background: linear-gradient(to right, var(--accent-gold) 0%, #FFB700 100%);
+            background: linear-gradient(to right, var(--accent-pink) 0%, #FF6B9D 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -346,6 +346,21 @@
         .floating {
             animation: float 3s ease-in-out infinite;
         }
+        
+        /* FIXES */
+        .tool-link {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .tool-card-content {
+            height: 100%;
+        }
+        
+        .tool-card .d-flex {
+            min-height: 70px;
+        }
     </style>
 </head>
 <body>
@@ -367,7 +382,7 @@
                         <a href="#" class="nav-link" onclick="showCategory('developer-tools')">Developer</a>
                         <a href="#" class="nav-link" onclick="showContactPage()">Contact Us</a>
                     </nav>
-                    <button class="btn btn-gold ms-3" onclick="showLoginModal()">Login</button>
+                    <button class="btn btn-pink ms-3" onclick="showLoginModal()">Login</button>
                     <button class="btn btn-outline-light ms-2" onclick="showSignupModal()">Sign Up</button>
                 </div>
             </div>
@@ -381,14 +396,14 @@
             <div class="hero-section">
                 <h1 class="hero-title">100+ Free Online Tools</h1>
                 <p class="hero-subtitle">All-in-one solution for image conversion, text utilities, SEO tools, calculators, and developer resources - completely free!</p>
-                <button class="btn btn-gold btn-lg px-5 py-3" onclick="showCategory('popular-tools')">Explore Tools</button>
+                <button class="btn btn-pink btn-lg px-5 py-3" onclick="showCategory('popular-tools')">Explore Tools</button>
             </div>
             
             <div class="row mb-5">
                 <div class="col-md-8 mx-auto">
                     <div class="input-group">
                         <input type="text" id="search-input" class="form-control search-box" placeholder="Search for tools...">
-                        <button class="btn btn-gold px-4" type="button" onclick="searchTools()">
+                        <button class="btn btn-pink px-4" type="button" onclick="searchTools()">
                             <i class="fas fa-search me-2"></i>Search
                         </button>
                     </div>
@@ -405,49 +420,63 @@
                 <h3 class="category-title" id="popular-tools">Popular Tools</h3>
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
-                    <a href="Image-to-PNG.html" style="text-decoration: none; color: inherit;" onclick="showTool('image-to-png'); return false;">
-                    <div class="tool-card">
-                    <div class="d-flex align-items-center mb-3">
-                     <div class="bg-dark rounded-circle p-3 me-3">
-                     <i class="fas fa-file-image text-warning"></i>
-                         </div>
-                      <h4 class="tool-title mb-0">Image to PNG</h4>
-                          </div>
-                      <p class="tool-description">Convert any image to PNG format with high quality.</p>
-                        </div>
-                         </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('word-counter')">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="bg-dark rounded-circle p-3 me-3">
-                                    <i class="fas fa-font text-warning"></i>
+                        <div class="tool-card">
+                            <a href="Image-to-PNG.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-dark rounded-circle p-3 me-3">
+                                            <i class="fas fa-file-image" style="color: var(--accent-pink);"></i>
+                                        </div>
+                                        <h4 class="tool-title">Image to PNG</h4>
+                                    </div>
+                                    <p class="tool-description">Convert any image to PNG format with high quality.</p>
                                 </div>
-                                <h4 class="tool-title mb-0">Word Counter</h4>
-                            </div>
-                            <p class="tool-description">Count words, characters, sentences, and paragraphs.</p>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('json-formatter')">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="bg-dark rounded-circle p-3 me-3">
-                                    <i class="fas fa-code text-warning"></i>
+                        <div class="tool-card">
+                            <a href="Word-Counter.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-dark rounded-circle p-3 me-3">
+                                            <i class="fas fa-font" style="color: var(--accent-pink);"></i>
+                                        </div>
+                                        <h4 class="tool-title">Word Counter</h4>
+                                    </div>
+                                    <p class="tool-description">Count words, characters, sentences, and paragraphs.</p>
                                 </div>
-                                <h4 class="tool-title mb-0">JSON Formatter</h4>
-                            </div>
-                            <p class="tool-description">Format, validate and minify JSON data.</p>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('password-generator')">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="bg-dark rounded-circle p-3 me-3">
-                                    <i class="fas fa-lock text-warning"></i>
+                        <div class="tool-card">
+                            <a href="JSON-Formatter.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-dark rounded-circle p-3 me-3">
+                                            <i class="fas fa-code" style="color: var(--accent-pink);"></i>
+                                        </div>
+                                        <h4 class="tool-title">JSON Formatter</h4>
+                                    </div>
+                                    <p class="tool-description">Format, validate and minify JSON data.</p>
                                 </div>
-                                <h4 class="tool-title mb-0">Password Generator</h4>
-                            </div>
-                            <p class="tool-description">Create strong and secure passwords instantly.</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tool-card">
+                            <a href="Password-Generator.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-dark rounded-circle p-3 me-3">
+                                            <i class="fas fa-lock" style="color: var(--accent-pink);"></i>
+                                        </div>
+                                        <h4 class="tool-title">Password Generator</h4>
+                                    </div>
+                                    <p class="tool-description">Create strong and secure passwords instantly.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -455,27 +484,43 @@
                 <h3 class="category-title" id="image-tools">Image Tools</h3>
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('image-to-png')">
-                            <h4 class="tool-title">Image to PNG</h4>
-                            <p class="tool-description">Convert any image to PNG format with high quality.</p>
+                        <div class="tool-card">
+                            <a href="Image-to-PNG.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Image to PNG</h4>
+                                    <p class="tool-description">Convert any image to PNG format with high quality.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('image-to-jpg')">
-                            <h4 class="tool-title">Image to JPG</h4>
-                            <p class="tool-description">Convert images to JPG/JPEG format easily.</p>
+                        <div class="tool-card">
+                            <a href="Image-to-JPG.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Image to JPG</h4>
+                                    <p class="tool-description">Convert images to JPG/JPEG format easily.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('image-resizer')">
-                            <h4 class="tool-title">Image Resizer</h4>
-                            <p class="tool-description">Resize your images to any dimensions.</p>
+                        <div class="tool-card">
+                            <a href="Image-Resizer.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Image Resizer</h4>
+                                    <p class="tool-description">Resize your images to any dimensions.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('image-compressor')">
-                            <h4 class="tool-title">Image Compressor</h4>
-                            <p class="tool-description">Reduce image file size without losing quality.</p>
+                        <div class="tool-card">
+                            <a href="Image-Compressor.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Image Compressor</h4>
+                                    <p class="tool-description">Reduce image file size without losing quality.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -483,27 +528,43 @@
                 <h3 class="category-title" id="seo-tools">SEO Tools</h3>
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('meta-tag-generator')">
-                            <h4 class="tool-title">Meta Tag Generator</h4>
-                            <p class="tool-description">Create perfect meta tags for your website.</p>
+                        <div class="tool-card">
+                            <a href="Meta-Tag-Generator.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Meta Tag Generator</h4>
+                                    <p class="tool-description">Create perfect meta tags for your website.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('keyword-density-checker')">
-                            <h4 class="tool-title">Keyword Density Checker</h4>
-                            <p class="tool-description">Analyze keyword density in your content.</p>
+                        <div class="tool-card">
+                            <a href="Keyword-Density-Checker.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Keyword Density Checker</h4>
+                                    <p class="tool-description">Analyze keyword density in your content.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('sitemap-generator')">
-                            <h4 class="tool-title">Sitemap Generator</h4>
-                            <p class="tool-description">Generate XML sitemaps for your website.</p>
+                        <div class="tool-card">
+                            <a href="Sitemap-Generator.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Sitemap Generator</h4>
+                                    <p class="tool-description">Generate XML sitemaps for your website.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('robots-txt-generator')">
-                            <h4 class="tool-title">Robots.txt Generator</h4>
-                            <p class="tool-description">Create a robots.txt file for your site.</p>
+                        <div class="tool-card">
+                            <a href="Robots-Txt-Generator.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Robots.txt Generator</h4>
+                                    <p class="tool-description">Create a robots.txt file for your site.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -511,27 +572,43 @@
                 <h3 class="category-title" id="text-tools">Text Tools</h3>
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('word-counter')">
-                            <h4 class="tool-title">Word Counter</h4>
-                            <p class="tool-description">Count words and characters in your text.</p>
+                        <div class="tool-card">
+                            <a href="Word-Counter.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Word Counter</h4>
+                                    <p class="tool-description">Count words and characters in your text.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('character-counter')">
-                            <h4 class="tool-title">Character Counter</h4>
-                            <p class="tool-description">Count characters, words, and lines.</p>
+                        <div class="tool-card">
+                            <a href="Character-Counter.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Character Counter</h4>
+                                    <p class="tool-description">Count characters, words, and lines.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('case-converter')">
-                            <h4 class="tool-title">Case Converter</h4>
-                            <p class="tool-description">Convert text between different cases.</p>
+                        <div class="tool-card">
+                            <a href="Case-Converter.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Case Converter</h4>
+                                    <p class="tool-description">Convert text between different cases.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <div class="tool-card" onclick="showTool('plagiarism-checker')">
-                            <h4 class="tool-title">Plagiarism Checker</h4>
-                            <p class="tool-description">Check text for duplicate content.</p>
+                        <div class="tool-card">
+                            <a href="Plagiarism-Checker.html" class="tool-link">
+                                <div class="tool-card-content">
+                                    <h4 class="tool-title">Plagiarism Checker</h4>
+                                    <p class="tool-description">Check text for duplicate content.</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -563,14 +640,14 @@
                                 <label for="message" class="form-label">Your Message</label>
                                 <textarea class="form-control" id="message" rows="5" placeholder="Type your message here..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-gold px-4">Send Message</button>
+                            <button type="submit" class="btn btn-pink px-4">Send Message</button>
                         </form>
                     </div>
                 </div>
                 
                 <div class="col-md-5">
                     <div class="contact-info">
-                        <h4 class="mb-4" style="color: var(--accent-gold);">Get in Touch</h4>
+                        <h4 class="mb-4" style="color: var(--accent-pink);">Get in Touch</h4>
                         
                         <div class="info-item">
                             <div class="info-icon">
@@ -602,7 +679,7 @@
                             </div>
                         </div>
                         
-                        <h5 class="mt-4 mb-3" style="color: var(--accent-gold);">Follow Us</h5>
+                        <h5 class="mt-4 mb-3" style="color: var(--accent-pink);">Follow Us</h5>
                         <div class="d-flex justify-content-start">
                             <a href="https://youtube.com" target="_blank" class="social-icon floating" style="animation-delay: 0.2s;">
                                 <i class="fab fa-youtube"></i>
@@ -640,7 +717,7 @@
                                 <label for="word-counter-text" class="form-label">Enter your text</label>
                                 <textarea class="form-control" id="word-counter-text" rows="10" placeholder="Start typing here..."></textarea>
                             </div>
-                            <button class="btn btn-gold px-4" onclick="countWords()">
+                            <button class="btn btn-pink px-4" onclick="countWords()">
                                 <i class="fas fa-calculator me-2"></i>Count Words
                             </button>
                         </div>
@@ -650,19 +727,19 @@
                                 <div class="card bg-dark text-white p-3 mb-4">
                                     <div class="row text-center">
                                         <div class="col-6 mb-3">
-                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="word-count">0</div>
+                                            <div class="display-4 fw-bold" style="color: var(--accent-pink);" id="word-count">0</div>
                                             <div>Words</div>
                                         </div>
                                         <div class="col-6 mb-3">
-                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="character-count">0</div>
+                                            <div class="display-4 fw-bold" style="color: var(--accent-pink);" id="character-count">0</div>
                                             <div>Characters</div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="sentence-count">0</div>
+                                            <div class="display-4 fw-bold" style="color: var(--accent-pink);" id="sentence-count">0</div>
                                             <div>Sentences</div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="display-4 fw-bold" style="color: var(--accent-gold);" id="paragraph-count">0</div>
+                                            <div class="display-4 fw-bold" style="color: var(--accent-pink);" id="paragraph-count">0</div>
                                             <div>Paragraphs</div>
                                         </div>
                                     </div>
@@ -730,9 +807,9 @@
                     <h5>Resources</h5>
                     <div class="footer-links d-flex flex-column">
                         <a href="#" onclick="showHomePage()">All Tools</a>
-                        <a href="#" onclick="showTool('word-counter')">Word Counter</a>
-                        <a href="#" onclick="showTool('json-formatter')">JSON Formatter</a>
-                        <a href="#" onclick="showTool('image-to-png')">Image Converter</a>
+                        <a href="Word-Counter.html">Word Counter</a>
+                        <a href="JSON-Formatter.html">JSON Formatter</a>
+                        <a href="Image-to-PNG.html">Image Converter</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 mb-4">
@@ -748,14 +825,14 @@
             <hr class="my-4 bg-secondary">
             <div class="text-center">
                 <div class="mt-4">
-    <div class="d-flex align-items-center">
-        <span class="me-2 small">Technology by</span>
-        <div style="background: rgba(255,215,0,0.1); padding: 3px 8px; border-radius: 5px;">
-            <i class="fas fa-brain me-1" style="color: var(--accent-gold);"></i>
-            <span style="font-weight: 600; color: var(--accent-gold);">DeepSeek</span>
-        </div>
-    </div>
-</div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span class="me-2 small">Technology by</span>
+                        <div style="background: rgba(255,77,141,0.1); padding: 3px 8px; border-radius: 5px;">
+                            <i class="fas fa-brain me-1" style="color: var(--accent-pink);"></i>
+                            <span style="font-weight: 600; color: var(--accent-pink);">DeepSeek</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -782,7 +859,7 @@
                             <input type="checkbox" class="form-check-input" id="rememberMe">
                             <label class="form-check-label" for="rememberMe">Remember me</label>
                         </div>
-                        <button type="submit" class="btn btn-gold w-100">Login</button>
+                        <button type="submit" class="btn btn-pink w-100">Login</button>
                     </form>
                     <div class="mt-3 text-center">
                         <p>Don't have an account? <a href="#" onclick="showSignupModal()">Sign up</a></p>
@@ -818,7 +895,7 @@
                             <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control" id="signupConfirmPassword" required>
                         </div>
-                        <button type="submit" class="btn btn-gold w-100">Sign Up</button>
+                        <button type="submit" class="btn btn-pink w-100">Sign Up</button>
                     </form>
                     <div class="mt-3 text-center">
                         <p>Already have an account? <a href="#" onclick="showLoginModal()">Login</a></p>
@@ -859,7 +936,7 @@
                     <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-gold" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-pink" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -1070,4 +1147,369 @@
         console.log('Welcome to tinywow.fun - Your multi-tools website!');
     </script>
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinywow.fun - 100+ Free Online Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark-purple: #2A0A4A;
+            --text-light: #F0E6FF;
+            --header-dark: #1A052D;
+            --accent-pink: #FF4D8D;
+            --tool-card-bg: #3D1A6B;
+            --hover-pink: #FF2D7A;
+        }
+        
+        body {
+            background-color: var(--bg-dark-purple);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: radial-gradient(circle at 10% 20%, rgba(61, 26, 107, 0.3) 0%, rgba(42, 10, 74, 0.3) 90%);
+        }
+        
+        .header {
+            background-color: var(--header-dark);
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            background: linear-gradient(135deg, var(--accent-pink) 0%, #FF6B9D 100%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(255, 77, 141, 0.3);
+        }
+        
+        .logo-text {
+            font-weight: 800;
+            font-size: 2rem;
+            background: linear-gradient(to right, var(--accent-pink) 0%, #FF6B9D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link {
+            color: var(--text-light);
+            margin: 0 10px;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-pink);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-pink);
+        }
+        
+        .btn-pink {
+            background-color: var(--accent-pink);
+            color: white;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 77, 141, 0.3);
+        }
+        
+        .btn-pink:hover {
+            background-color: var(--hover-pink);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 77, 141, 0.4);
+        }
+        
+        .tool-card {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 77, 141, 0.2);
+            border: 1px solid rgba(255, 77, 141, 0.1);
+        }
+        
+        .tool-card:hover {
+            background-color: var(--accent-pink);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 77, 141, 0.4);
+        }
+        
+        .tool-card:hover .tool-title,
+        .tool-card:hover .tool-description {
+            color: white;
+        }
+        
+        .tool-title {
+            color: var(--accent-pink);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .tool-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .category-title {
+            color: var(--accent-pink);
+            border-bottom: 2px solid var(--accent-pink);
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .category-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-pink);
+            border-radius: 50%;
+        }
+        
+        .search-box {
+            background-color: var(--tool-card-bg);
+            border: 1px solid var(--accent-pink);
+            color: var(--text-light);
+            padding: 15px 20px;
+            border-radius: 50px;
+        }
+        
+        .search-box:focus {
+            background-color: var(--tool-card-bg);
+            color: var(--text-light);
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 0 0.25rem rgba(255, 77, 141, 0.25);
+        }
+        
+        .footer {
+            background-color: var(--header-dark);
+            padding: 50px 0 20px;
+            margin-top: 50px;
+            background-image: linear-gradient(to bottom, rgba(26, 5, 45, 0.9), rgba(42, 10, 74, 0.9));
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-pink);
+            transform: translateX(5px);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--tool-card-bg);
+            color: var(--accent-pink);
+            font-size: 1.3rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icon:hover {
+            background: var(--accent-pink);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Tool page styles */
+        .tool-container {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tool-header {
+            color: var(--accent-pink);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .tool-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-pink);
+        }
+        
+        .ad-container {
+            background: linear-gradient(135deg, rgba(61, 26, 107, 0.8), rgba(43, 45, 66, 0.8));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 77, 141, 0.2);
+        }
+        
+        /* Contact Page */
+        .contact-container {
+            background-color: var(--tool-card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-form {
+            background-color: rgba(26, 5, 45, 0.5);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 77, 141, 0.1);
+        }
+        
+        .contact-info {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(26, 5, 45, 0.5), rgba(61, 26, 107, 0.5));
+            border-radius: 10px;
+            border: 1px solid rgba(255, 77, 141, 0.1);
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 77, 141, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-pink);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(26, 5, 45, 0.8), rgba(42, 10, 74, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100" fill="rgba(255,77,141,0.1)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            padding: 60px 30px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 77, 141, 0.2);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-pink) 0%, #FF6B9D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tool-card {
+                padding: 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* FIXES */
+        .tool-link {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .tool-card-content {
+            height: 100%;
+        }
+        
+        .tool-card .d-flex {
+            min-height: 70px;
+        }
+    </style>
+</head>
+<body>
