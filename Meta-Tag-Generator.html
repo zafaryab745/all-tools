@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Meta Tag Generator tool. Create perfect SEO meta tags for your website including title, description, keywords, and more.">
+    <meta name="keywords" content="meta tag generator, SEO meta tags, HTML meta tags, website meta tags, search engine optimization">
+    <title>Meta Tag Generator | Create Perfect SEO Meta Tags for Your Website</title>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --card-bg: #3A3D5B;
+            --hover-accent: #E6C200;
+            --shadow: rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            text-align: center;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .tool-card:hover .result-box {
+            background-color: rgba(30, 30, 47, 0.8);
+            color: var(--text-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        input[type="text"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: var(--accent-color);
+        }
+
+        .result-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .result-label {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tool-card:hover .result-label {
+            color: var(--bg-color);
+        }
+
+        #meta-tags {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            color: var(--text-color);
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: var(--hover-accent);
+        }
+
+        @media (max-width: 600px) {
+            .tool-card {
+                padding: 15px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- AdSense Top Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- MetaTagGenerator_Top -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <header>
+            <h1>Meta Tag Generator</h1>
+            <p>Create perfect meta tags for your website</p>
+        </header>
+
+        <main>
+            <div class="tool-card">
+                <form id="meta-tag-form">
+                    <div class="form-group">
+                        <label for="page-title">Page Title</label>
+                        <input type="text" id="page-title" placeholder="Enter your page title (50-60 characters)" maxlength="60">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="page-description">Meta Description</label>
+                        <textarea id="page-description" placeholder="Enter your meta description (150-160 characters)" maxlength="160"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="page-keywords">Meta Keywords (comma separated)</label>
+                        <textarea id="page-keywords" placeholder="keyword1, keyword2, keyword3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="page-url">Canonical URL</label>
+                        <input type="url" id="page-url" placeholder="https://example.com/page-url">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Additional Meta Tags</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="viewport-tag" checked>
+                            <label for="viewport-tag">Viewport Tag (for mobile responsiveness)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="charset-tag" checked>
+                            <label for="charset-tag">Charset Declaration (UTF-8)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="og-tags">
+                            <label for="og-tags">Open Graph Tags (for social media)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="twitter-tags">
+                            <label for="twitter-tags">Twitter Card Tags</label>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box">
+                        <div class="result-label">
+                            <span>Generated Meta Tags</span>
+                            <button type="button" id="copy-meta-tags">Copy</button>
+                        </div>
+                        <textarea id="meta-tags" readonly></textarea>
+                    </div>
+                    
+                    <div class="buttons">
+                        <button type="submit" id="generate-btn">Generate Meta Tags</button>
+                        <button type="reset" id="reset-btn">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- AdSense Bottom Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- MetaTagGenerator_Bottom -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('meta-tag-form');
+            const metaTagsOutput = document.getElementById('meta-tags');
+            const copyButton = document.getElementById('copy-meta-tags');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                generateMetaTags();
+            });
+            
+            form.addEventListener('reset', function() {
+                metaTagsOutput.value = '';
+            });
+            
+            copyButton.addEventListener('click', function() {
+                metaTagsOutput.select();
+                document.execCommand('copy');
+                
+                // Change button text temporarily
+                const originalText = copyButton.textContent;
+                copyButton.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyButton.textContent = originalText;
+                }, 2000);
+            });
+            
+            function generateMetaTags() {
+                const title = document.getElementById('page-title').value.trim();
+                const description = document.getElementById('page-description').value.trim();
+                const keywords = document.getElementById('page-keywords').value.trim();
+                const url = document.getElementById('page-url').value.trim();
+                const includeViewport = document.getElementById('viewport-tag').checked;
+                const includeCharset = document.getElementById('charset-tag').checked;
+                const includeOgTags = document.getElementById('og-tags').checked;
+                const includeTwitterTags = document.getElementById('twitter-tags').checked;
+                
+                let metaTags = '';
+                
+                // Basic meta tags
+                if (title) {
+                    metaTags += `<title>${escapeHtml(title)}</title>\n`;
+                }
+                
+                if (description) {
+                    metaTags += `<meta name="description" content="${escapeHtml(description)}">\n`;
+                }
+                
+                if (keywords) {
+                    metaTags += `<meta name="keywords" content="${escapeHtml(keywords)}">\n`;
+                }
+                
+                if (url) {
+                    metaTags += `<link rel="canonical" href="${escapeHtml(url)}">\n`;
+                }
+                
+                // Standard meta tags
+                if (includeViewport) {
+                    metaTags += `<meta name="viewport" content="width=device-width, initial-scale=1.0">\n`;
+                }
+                
+                if (includeCharset) {
+                    metaTags += `<meta charset="UTF-8">\n`;
+                }
+                
+                // Open Graph tags
+                if (includeOgTags) {
+                    metaTags += `\n<!-- Open Graph / Facebook -->\n`;
+                    metaTags += `<meta property="og:type" content="website">\n`;
+                    if (url) metaTags += `<meta property="og:url" content="${escapeHtml(url)}">\n`;
+                    if (title) metaTags += `<meta property="og:title" content="${escapeHtml(title)}">\n`;
+                    if (description) metaTags += `<meta property="og:description" content="${escapeHtml(description)}">\n`;
+                    // You could add og:image here if you want to include image field
+                }
+                
+                // Twitter Card tags
+                if (includeTwitterTags) {
+                    metaTags += `\n<!-- Twitter -->\n`;
+                    metaTags += `<meta property="twitter:card" content="summary_large_image">\n`;
+                    if (url) metaTags += `<meta property="twitter:url" content="${escapeHtml(url)}">\n`;
+                    if (title) metaTags += `<meta property="twitter:title" content="${escapeHtml(title)}">\n`;
+                    if (description) metaTags += `<meta property="twitter:description" content="${escapeHtml(description)}">\n`;
+                    // You could add twitter:image here if you want to include image field
+                }
+                
+                metaTagsOutput.value = metaTags.trim();
+            }
+            
+            function escapeHtml(unsafe) {
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+        });
+    </script>
+</body>
+</html>
