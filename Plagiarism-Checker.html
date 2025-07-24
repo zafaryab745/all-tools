@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Plagiarism Checker tool. Detect duplicate content and check text originality instantly.">
+    <meta name="keywords" content="plagiarism checker, duplicate content, content originality, text similarity, writing tool">
+    <title>Plagiarism Checker Tool | Detect Duplicate Content</title>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --card-bg: #3A3D5B;
+            --hover-accent: #E6C200;
+            --shadow: rgba(255, 215, 0, 0.2);
+            --warning: #FF6B6B;
+            --success: #6BCB77;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            text-align: center;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .tool-card:hover .result-box {
+            background-color: rgba(30, 30, 47, 0.8);
+            color: var(--text-color);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 16px;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .result-label {
+            font-size: 16px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .tool-card:hover .result-label {
+            color: var(--bg-color);
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .similarity-high {
+            color: var(--warning);
+        }
+
+        .similarity-medium {
+            color: var(--accent-color);
+        }
+
+        .similarity-low {
+            color: var(--success);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+        }
+
+        button:hover {
+            background-color: var(--hover-accent);
+        }
+
+        button:disabled {
+            background-color: #666;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--bg-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            .tool-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- AdSense Top Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- PlagiarismChecker_Top -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <header>
+            <h1>Plagiarism Checker Tool</h1>
+            <p>Check text for duplicate content and originality</p>
+        </header>
+
+        <main>
+            <div class="tool-card">
+                <textarea id="text-input" placeholder="Paste your text here to check for plagiarism..."></textarea>
+                
+                <div class="result-container">
+                    <div class="result-box">
+                        <div class="result-header">
+                            <div class="result-label">Originality Score</div>
+                            <div class="result-value" id="originality-score">-</div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="originality-bar" style="width: 0%; background-color: var(--success);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box">
+                        <div class="result-header">
+                            <div class="result-label">Similarity Score</div>
+                            <div class="result-value" id="similarity-score">-</div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="similarity-bar" style="width: 0%; background-color: var(--warning);"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button id="clear-btn">Clear Text</button>
+                    <button id="check-btn">Check for Plagiarism</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- AdSense Bottom Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- PlagiarismChecker_Bottom -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('text-input');
+            const checkBtn = document.getElementById('check-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const originalityScore = document.getElementById('originality-score');
+            const similarityScore = document.getElementById('similarity-score');
+            const originalityBar = document.getElementById('originality-bar');
+            const similarityBar = document.getElementById('similarity-bar');
+
+            // Check for plagiarism button
+            checkBtn.addEventListener('click', checkPlagiarism);
+
+            // Clear button
+            clearBtn.addEventListener('click', function() {
+                textInput.value = '';
+                originalityScore.textContent = '-';
+                similarityScore.textContent = '-';
+                originalityBar.style.width = '0%';
+                similarityBar.style.width = '0%';
+                textInput.focus();
+            });
+
+            function checkPlagiarism() {
+                const text = textInput.value.trim();
+                
+                if (!text) {
+                    alert('Please enter some text to check');
+                    return;
+                }
+                
+                // Simulate checking (in a real app, this would call an API)
+                checkBtn.disabled = true;
+                checkBtn.innerHTML = '<span class="loading"></span> Checking...';
+                
+                setTimeout(() => {
+                    // This is a simulation - real plagiarism check would require server-side processing
+                    const score = simulatePlagiarismCheck(text);
+                    const originality = 100 - score;
+                    
+                    // Update results
+                    originalityScore.textContent = originality + '%';
+                    similarityScore.textContent = score + '%';
+                    originalityBar.style.width = originality + '%';
+                    similarityBar.style.width = score + '%';
+                    
+                    // Color coding
+                    if (score > 50) {
+                        similarityScore.className = 'result-value similarity-high';
+                    } else if (score > 25) {
+                        similarityScore.className = 'result-value similarity-medium';
+                    } else {
+                        similarityScore.className = 'result-value similarity-low';
+                    }
+                    
+                    if (originality > 75) {
+                        originalityScore.className = 'result-value similarity-low';
+                        originalityBar.style.backgroundColor = 'var(--success)';
+                    } else if (originality > 50) {
+                        originalityScore.className = 'result-value similarity-medium';
+                        originalityBar.style.backgroundColor = 'var(--accent-color)';
+                    } else {
+                        originalityScore.className = 'result-value similarity-high';
+                        originalityBar.style.backgroundColor = 'var(--warning)';
+                    }
+                    
+                    checkBtn.disabled = false;
+                    checkBtn.textContent = 'Check for Plagiarism';
+                }, 2000);
+            }
+            
+            function simulatePlagiarismCheck(text) {
+                // This is just a simulation - real plagiarism detection would require:
+                // 1. Comparing against a database of sources
+                // 2. Using text matching algorithms
+                // 3. Possibly API calls to services like Copyscape
+                
+                // For demo purposes, we'll generate a random score based on text length
+                // and content characteristics
+                let baseScore = Math.min(30, text.length / 100);
+                
+                // Increase score if text contains common phrases
+                const commonPhrases = [
+                    'the quick brown fox', 'lorem ipsum dolor', 
+                    'in conclusion', 'as a result', 'it is important to'
+                ];
+                
+                commonPhrases.forEach(phrase => {
+                    if (text.toLowerCase().includes(phrase)) {
+                        baseScore += 5 + (Math.random() * 10);
+                    }
+                });
+                
+                // Add some randomness
+                baseScore += Math.random() * 20;
+                
+                // Cap at 95% for realism
+                return Math.min(95, Math.round(baseScore));
+            }
+        });
+    </script>
+</body>
+</html>
