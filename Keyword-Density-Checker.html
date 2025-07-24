@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Keyword Density Checker tool. Analyze keyword density in your content for better SEO optimization.">
+    <meta name="keywords" content="keyword density checker, SEO tool, content analysis, keyword analysis, SEO optimization">
+    <title>Keyword Density Checker | Analyze Keyword Frequency in Your Content</title>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --card-bg: #3A3D5B;
+            --hover-accent: #E6C200;
+            --shadow: rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            text-align: center;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .tool-card:hover .result-box {
+            background-color: rgba(30, 30, 47, 0.8);
+            color: var(--text-color);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 16px;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-group {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .option-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .tool-card:hover .option-label {
+            color: var(--bg-color);
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .result-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .keyword {
+            color: var(--accent-color);
+        }
+
+        .tool-card:hover .keyword {
+            color: var(--bg-color);
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            border-radius: 5px;
+            background-color: var(--accent-color);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+        }
+
+        button:hover {
+            background-color: var(--hover-accent);
+        }
+
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- AdSense Top Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- KeywordDensity_Top -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <header>
+            <h1>Keyword Density Checker</h1>
+            <p>Analyze keyword density in your content for better SEO optimization</p>
+        </header>
+
+        <main>
+            <div class="tool-card">
+                <textarea id="content-input" placeholder="Paste your content here..."></textarea>
+                
+                <div class="options">
+                    <div class="option-group">
+                        <label class="option-label" for="keyword-input">Target Keyword</label>
+                        <input type="text" id="keyword-input" placeholder="Enter your target keyword">
+                    </div>
+                    <div class="option-group">
+                        <label class="option-label" for="min-length">Minimum Word Length</label>
+                        <input type="number" id="min-length" value="3" min="1" max="10">
+                    </div>
+                    <div class="option-group">
+                        <label class="option-label" for="min-count">Minimum Occurrence</label>
+                        <input type="number" id="min-count" value="2" min="1" max="10">
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button id="analyze-btn">Analyze Content</button>
+                    <button id="clear-btn">Clear All</button>
+                </div>
+                
+                <div class="results" id="results-container">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- AdSense Bottom Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- KeywordDensity_Bottom -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentInput = document.getElementById('content-input');
+            const keywordInput = document.getElementById('keyword-input');
+            const minLengthInput = document.getElementById('min-length');
+            const minCountInput = document.getElementById('min-count');
+            const analyzeBtn = document.getElementById('analyze-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const resultsContainer = document.getElementById('results-container');
+
+            analyzeBtn.addEventListener('click', analyzeContent);
+            clearBtn.addEventListener('click', clearAll);
+
+            function analyzeContent() {
+                const content = contentInput.value.trim();
+                const targetKeyword = keywordInput.value.trim().toLowerCase();
+                const minLength = parseInt(minLengthInput.value);
+                const minCount = parseInt(minCountInput.value);
+                
+                if (!content) {
+                    alert('Please enter some content to analyze');
+                    return;
+                }
+
+                // Clean and prepare content
+                const cleanedContent = content.toLowerCase()
+                    .replace(/[^\w\s]|_/g, '') // Remove punctuation
+                    .replace(/\s+/g, ' ');      // Normalize whitespace
+                
+                const words = cleanedContent.split(' ');
+                const totalWords = words.length;
+                
+                if (totalWords === 0) {
+                    alert('No valid words found in the content');
+                    return;
+                }
+
+                // Count word frequencies
+                const wordCounts = {};
+                words.forEach(word => {
+                    if (word.length >= minLength) {
+                        wordCounts[word] = (wordCounts[word] || 0) + 1;
+                    }
+                });
+
+                // Filter words by minimum count
+                const filteredWords = Object.entries(wordCounts)
+                    .filter(([word, count]) => count >= minCount)
+                    .sort((a, b) => b[1] - a[1]); // Sort by frequency descending
+
+                // Display results
+                resultsContainer.innerHTML = '';
+                
+                // Add target keyword analysis if provided
+                if (targetKeyword) {
+                    const keywordCount = wordCounts[targetKeyword] || 0;
+                    const keywordDensity = ((keywordCount / totalWords) * 100).toFixed(2);
+                    
+                    const keywordResult = document.createElement('div');
+                    keywordResult.className = 'result-box';
+                    keywordResult.innerHTML = `
+                        <div class="result-header">
+                            <span class="keyword">Target Keyword: "${targetKeyword}"</span>
+                            <span>${keywordCount} occurrences (${keywordDensity}%)</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: ${Math.min(keywordDensity, 5)}0%"></div>
+                        </div>
+                        <p>Recommended density: 1-2% for main keyword</p>
+                    `;
+                    resultsContainer.appendChild(keywordResult);
+                }
+
+                // Add general keyword analysis
+                const generalResult = document.createElement('div');
+                generalResult.className = 'result-box';
+                generalResult.innerHTML = `
+                    <h3>Top Keywords (${filteredWords.length} found)</h3>
+                    <p>Total words analyzed: ${totalWords}</p>
+                `;
+                resultsContainer.appendChild(generalResult);
+
+                // Add keyword list
+                filteredWords.forEach(([word, count]) => {
+                    const density = ((count / totalWords) * 100).toFixed(2);
+                    const keywordItem = document.createElement('div');
+                    keywordItem.className = 'result-box';
+                    keywordItem.innerHTML = `
+                        <div class="result-header">
+                            <span class="keyword">${word}</span>
+                            <span>${count} occurrences (${density}%)</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: ${Math.min(density, 5)}0%"></div>
+                        </div>
+                    `;
+                    resultsContainer.appendChild(keywordItem);
+                });
+            }
+
+            function clearAll() {
+                contentInput.value = '';
+                keywordInput.value = '';
+                resultsContainer.innerHTML = '';
+                contentInput.focus();
+            }
+        });
+    </script>
+</body>
+</html>
