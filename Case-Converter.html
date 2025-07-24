@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Case Converter tool. Convert text between uppercase, lowercase, sentence case, title case, and more.">
+    <meta name="keywords" content="case converter, text converter, uppercase, lowercase, title case, sentence case">
+    <title>Case Converter Tool | Change Text Case Instantly</title>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --card-bg: #3A3D5B;
+            --hover-accent: #E6C200;
+            --shadow: rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            text-align: center;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .tool-card:hover .result-box {
+            background-color: rgba(30, 30, 47, 0.8);
+            color: var(--text-color);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 16px;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .case-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .case-option {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .case-option:hover {
+            background-color: var(--hover-accent);
+            color: var(--bg-color);
+        }
+
+        .case-option.active {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+        }
+
+        button:hover {
+            background-color: var(--hover-accent);
+        }
+
+        @media (max-width: 600px) {
+            .case-options {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .tool-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- AdSense Top Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- CaseConverter_Top -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <header>
+            <h1>Case Converter Tool</h1>
+            <p>Convert text between different cases instantly</p>
+        </header>
+
+        <main>
+            <div class="tool-card">
+                <textarea id="text-input" placeholder="Type or paste your text here..."></textarea>
+                
+                <div class="case-options">
+                    <div class="case-option" data-case="lower">LOWERCASE</div>
+                    <div class="case-option" data-case="upper">UPPERCASE</div>
+                    <div class="case-option" data-case="sentence">Sentence case</div>
+                    <div class="case-option" data-case="title">Title Case</div>
+                    <div class="case-option" data-case="camel">camelCase</div>
+                    <div class="case-option" data-case="pascal">PascalCase</div>
+                    <div class="case-option" data-case="snake">snake_case</div>
+                    <div class="case-option" data-case="kebab">kebab-case</div>
+                </div>
+                
+                <div class="buttons">
+                    <button id="clear-btn">Clear Text</button>
+                    <button id="copy-btn">Copy Text</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- AdSense Bottom Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- CaseConverter_Bottom -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('text-input');
+            const caseOptions = document.querySelectorAll('.case-option');
+            const clearBtn = document.getElementById('clear-btn');
+            const copyBtn = document.getElementById('copy-btn');
+
+            // Convert text to different cases
+            caseOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    caseOptions.forEach(opt => opt.classList.remove('active'));
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    const text = textInput.value;
+                    const caseType = this.getAttribute('data-case');
+                    
+                    if (text) {
+                        textInput.value = convertCase(text, caseType);
+                    }
+                });
+            });
+
+            // Clear button
+            clearBtn.addEventListener('click', function() {
+                textInput.value = '';
+                caseOptions.forEach(opt => opt.classList.remove('active'));
+                textInput.focus();
+            });
+
+            // Copy button
+            copyBtn.addEventListener('click', function() {
+                textInput.select();
+                document.execCommand('copy');
+                
+                // Change button text temporarily
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            });
+
+            function convertCase(text, caseType) {
+                switch(caseType) {
+                    case 'lower':
+                        return text.toLowerCase();
+                    case 'upper':
+                        return text.toUpperCase();
+                    case 'sentence':
+                        return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+                    case 'title':
+                        return text.replace(/\w\S*/g, function(txt) {
+                            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                        });
+                    case 'camel':
+                        return text.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+                            if (+match === 0) return "";
+                            return index === 0 ? match.toLowerCase() : match.toUpperCase();
+                        }).replace(/[^\w]/gi, '');
+                    case 'pascal':
+                        return text.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match) {
+                            if (+match === 0) return "";
+                            return match.toUpperCase();
+                        }).replace(/[^\w]/gi, '');
+                    case 'snake':
+                        return text.toLowerCase().replace(/\s+/g, '_');
+                    case 'kebab':
+                        return text.toLowerCase().replace(/\s+/g, '-');
+                    default:
+                        return text;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
