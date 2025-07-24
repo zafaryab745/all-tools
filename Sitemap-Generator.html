@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Sitemap Generator tool. Create XML sitemaps for your website to improve SEO and search engine visibility.">
+    <meta name="keywords" content="sitemap generator, XML sitemap, SEO tool, website sitemap, search engine optimization">
+    <title>Sitemap Generator | Create XML Sitemaps for Your Website</title>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --card-bg: #3A3D5B;
+            --hover-accent: #E6C200;
+            --shadow: rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            text-align: center;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .tool-card:hover .result-box {
+            background-color: rgba(30, 30, 47, 0.8);
+            color: var(--text-color);
+        }
+
+        textarea, input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 16px;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        textarea:focus, input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .result-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .result-label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+
+        .tool-card:hover .result-label {
+            color: var(--bg-color);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+        }
+
+        button:hover {
+            background-color: var(--hover-accent);
+        }
+
+        @media (max-width: 600px) {
+            .tool-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- AdSense Top Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- SitemapGenerator_Top -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <header>
+            <h1>Sitemap Generator</h1>
+            <p>Create XML sitemaps for your website to improve SEO</p>
+        </header>
+
+        <main>
+            <div class="tool-card">
+                <div class="form-group">
+                    <label for="website-url">Website URL</label>
+                    <input type="url" id="website-url" placeholder="https://example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="url-list">Enter URLs (one per line):</label>
+                    <textarea id="url-list" rows="10" placeholder="https://example.com/page1
+https://example.com/page2
+https://example.com/blog"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Options:</label>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="checkbox" id="include-lastmod" checked>
+                            Include last modification date
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="checkbox" id="include-changefreq" checked>
+                            Include change frequency
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="checkbox" id="include-priority" checked>
+                            Include priority
+                        </label>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button id="generate-btn">Generate Sitemap</button>
+                    <button id="clear-btn">Clear All</button>
+                </div>
+
+                <div class="result-box" id="result-container" style="display: none;">
+                    <div class="result-label">Your XML Sitemap:</div>
+                    <textarea id="sitemap-output" rows="10" readonly></textarea>
+                    <div class="buttons" style="margin-top: 10px;">
+                        <button id="copy-btn">Copy to Clipboard</button>
+                        <button id="download-btn">Download Sitemap</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- AdSense Bottom Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- SitemapGenerator_Bottom -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const websiteUrl = document.getElementById('website-url');
+            const urlList = document.getElementById('url-list');
+            const includeLastmod = document.getElementById('include-lastmod');
+            const includeChangefreq = document.getElementById('include-changefreq');
+            const includePriority = document.getElementById('include-priority');
+            const generateBtn = document.getElementById('generate-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const copyBtn = document.getElementById('copy-btn');
+            const downloadBtn = document.getElementById('download-btn');
+            const sitemapOutput = document.getElementById('sitemap-output');
+            const resultContainer = document.getElementById('result-container');
+
+            // Generate sitemap
+            generateBtn.addEventListener('click', function() {
+                const baseUrl = websiteUrl.value.trim();
+                const urls = urlList.value.trim().split('\n').filter(url => url.trim() !== '');
+                
+                if (urls.length === 0) {
+                    alert('Please enter at least one URL');
+                    return;
+                }
+
+                let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
+                sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+                
+                const today = new Date().toISOString().split('T')[0];
+                
+                urls.forEach(url => {
+                    let cleanedUrl = url.trim();
+                    // Ensure URL starts with http:// or https://
+                    if (!cleanedUrl.startsWith('http://') && !cleanedUrl.startsWith('https://')) {
+                        if (baseUrl) {
+                            // If base URL is provided, prepend it
+                            cleanedUrl = baseUrl.replace(/\/$/, '') + '/' + cleanedUrl.replace(/^\//, '');
+                        } else {
+                            // Default to https if no base URL provided
+                            cleanedUrl = 'https://' + cleanedUrl;
+                        }
+                    }
+                    
+                    sitemap += '  <url>\n';
+                    sitemap += `    <loc>${cleanedUrl}</loc>\n`;
+                    
+                    if (includeLastmod.checked) {
+                        sitemap += `    <lastmod>${today}</lastmod>\n`;
+                    }
+                    
+                    if (includeChangefreq.checked) {
+                        sitemap += '    <changefreq>weekly</changefreq>\n';
+                    }
+                    
+                    if (includePriority.checked) {
+                        // Set homepage priority to 1.0, others to 0.8
+                        const isHomepage = cleanedUrl === baseUrl || 
+                                         cleanedUrl === baseUrl + '/' || 
+                                         cleanedUrl.replace(/\/$/, '') === baseUrl.replace(/\/$/, '');
+                        sitemap += `    <priority>${isHomepage ? '1.0' : '0.8'}</priority>\n`;
+                    }
+                    
+                    sitemap += '  </url>\n';
+                });
+                
+                sitemap += '</urlset>';
+                
+                sitemapOutput.value = sitemap;
+                resultContainer.style.display = 'block';
+            });
+
+            // Clear all fields
+            clearBtn.addEventListener('click', function() {
+                websiteUrl.value = '';
+                urlList.value = '';
+                sitemapOutput.value = '';
+                resultContainer.style.display = 'none';
+                includeLastmod.checked = true;
+                includeChangefreq.checked = true;
+                includePriority.checked = true;
+            });
+
+            // Copy to clipboard
+            copyBtn.addEventListener('click', function() {
+                sitemapOutput.select();
+                document.execCommand('copy');
+                
+                // Change button text temporarily
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            });
+
+            // Download sitemap
+            downloadBtn.addEventListener('click', function() {
+                if (!sitemapOutput.value) {
+                    alert('Please generate a sitemap first');
+                    return;
+                }
+                
+                const blob = new Blob([sitemapOutput.value], { type: 'application/xml' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'sitemap.xml';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        });
+    </script>
+</body>
+</html>
