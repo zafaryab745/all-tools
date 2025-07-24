@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Robots.txt Generator. Create a perfect robots.txt file for your website to control search engine crawlers.">
+    <meta name="keywords" content="robots.txt generator, SEO tool, search engine optimization, crawler control">
+    <title>Robots.txt Generator | Create Custom robots.txt Files</title>
+    <style>
+        :root {
+            --bg-color: #1E1E2F;
+            --text-color: #EAEAEA;
+            --header-bg: #2B2D42;
+            --accent-color: #FFD700;
+            --card-bg: #3A3D5B;
+            --hover-accent: #E6C200;
+            --shadow: rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .ad-container {
+            width: 100%;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            text-align: center;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .tool-card:hover .result-box {
+            background-color: rgba(30, 30, 47, 0.8);
+            color: var(--text-color);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 16px;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+        }
+
+        button:hover {
+            background-color: var(--hover-accent);
+        }
+
+        @media (max-width: 600px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- AdSense Top Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- RobotsTxt_Top -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <header>
+            <h1>Robots.txt Generator</h1>
+            <p>Create a custom robots.txt file to control search engine crawlers</p>
+        </header>
+
+        <main>
+            <div class="tool-card">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="user-agent">User-agent</label>
+                        <select id="user-agent">
+                            <option value="*">All user-agents (*)</option>
+                            <option value="Googlebot">Googlebot</option>
+                            <option value="Googlebot-Image">Googlebot-Image</option>
+                            <option value="Googlebot-News">Googlebot-News</option>
+                            <option value="Googlebot-Video">Googlebot-Video</option>
+                            <option value="Bingbot">Bingbot</option>
+                            <option value="Slurp">Yahoo! Slurp</option>
+                            <option value="DuckDuckBot">DuckDuckBot</option>
+                            <option value="Baiduspider">Baiduspider</option>
+                            <option value="Yandex">Yandex</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="action">Action</label>
+                        <select id="action">
+                            <option value="allow">Allow</option>
+                            <option value="disallow">Disallow</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="path">Path</label>
+                        <input type="text" id="path" placeholder="/private/">
+                    </div>
+                </div>
+
+                <textarea id="robots-content" placeholder="Your generated robots.txt content will appear here..." readonly></textarea>
+                
+                <div class="buttons">
+                    <button id="add-rule">Add Rule</button>
+                    <button id="clear-rules">Clear All</button>
+                    <button id="download-btn">Download robots.txt</button>
+                    <button id="copy-btn">Copy to Clipboard</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- AdSense Bottom Ad -->
+        <div class="ad-container">
+            <!-- Replace with your AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
+            <!-- RobotsTxt_Bottom -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userAgent = document.getElementById('user-agent');
+            const action = document.getElementById('action');
+            const path = document.getElementById('path');
+            const robotsContent = document.getElementById('robots-content');
+            const addRuleBtn = document.getElementById('add-rule');
+            const clearRulesBtn = document.getElementById('clear-rules');
+            const downloadBtn = document.getElementById('download-btn');
+            const copyBtn = document.getElementById('copy-btn');
+
+            let rules = [];
+            
+            // Initialize with basic comments
+            updateRobotsContent();
+
+            // Add rule button
+            addRuleBtn.addEventListener('click', function() {
+                const rule = {
+                    userAgent: userAgent.value,
+                    action: action.value,
+                    path: path.value.trim() || '/'
+                };
+                
+                rules.push(rule);
+                updateRobotsContent();
+                path.value = '';
+            });
+
+            // Clear rules button
+            clearRulesBtn.addEventListener('click', function() {
+                rules = [];
+                updateRobotsContent();
+            });
+
+            // Download button
+            downloadBtn.addEventListener('click', function() {
+                const blob = new Blob([robotsContent.value], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'robots.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+            // Copy button
+            copyBtn.addEventListener('click', function() {
+                robotsContent.select();
+                document.execCommand('copy');
+                
+                // Change button text temporarily
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            });
+
+            function updateRobotsContent() {
+                let content = `# robots.txt generated at ${new Date().toLocaleString()}\n`;
+                content += `# Learn more: https://developers.google.com/search/docs/advanced/robots/create-robots-txt\n\n`;
+                
+                // Group rules by user-agent
+                const rulesByUserAgent = {};
+                rules.forEach(rule => {
+                    if (!rulesByUserAgent[rule.userAgent]) {
+                        rulesByUserAgent[rule.userAgent] = [];
+                    }
+                    rulesByUserAgent[rule.userAgent].push(rule);
+                });
+                
+                // Generate content
+                for (const [ua, uaRules] of Object.entries(rulesByUserAgent)) {
+                    content += `User-agent: ${ua}\n`;
+                    uaRules.forEach(rule => {
+                        content += `${rule.action.charAt(0).toUpperCase() + rule.action.slice(1)}: ${rule.path}\n`;
+                    });
+                    content += '\n';
+                }
+                
+                // Add sitemap if exists
+                if (rules.length > 0) {
+                    content += `# Sitemap: Replace with your sitemap URL\n`;
+                    content += `# Sitemap: https://example.com/sitemap.xml\n`;
+                }
+                
+                robotsContent.value = content;
+            }
+        });
+    </script>
+</body>
+</html>
